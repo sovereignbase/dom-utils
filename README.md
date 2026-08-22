@@ -7,11 +7,11 @@
 
 Use our [cssText IntelliSense extension for VS Code](https://marketplace.visualstudio.com/items?itemName=sovereignbase.vscode-csstext-intellisense) to get CSS syntax highlighting and completions inside `style.cssText` template literals.
 
-![TypeScript importing elements by tag name and styling them with cssText](./assets/import-elements-by-tag-name.png)
+![TypeScript importing elements by tag name and styling them with cssText](https://sovereignbase.dev/dom-utils/images/import-elements-by-tag-name.png)
 
 ## Behaves just as you would expect
 
-![A native DOM element created and styled with dom-utils](./assets/dom-result.png)
+![A native DOM element created and styled with dom-utils](https://sovereignbase.dev/dom-utils/images/dom-result.png)
 
 Real DOM elements, native browser APIs, and less ceremony for vanilla JavaScript and TypeScript builders.
 
