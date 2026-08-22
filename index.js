@@ -15,8 +15,8 @@ margin: 0;
 width: 100dvw;
 height: 100dvh;
 `;
-var root = div();
-root.style.cssText = `
+var box = div();
+box.style.cssText = `
 position: fixed;
 top: 50%;
 left: 50%;
@@ -25,4 +25,4 @@ width: 300px;
 height: 300px;
 background-color: red;
 `;
-body.appendChild(root);
+body.appendChild(box);
