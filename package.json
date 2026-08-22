@@ -2,8 +2,8 @@
   "type": "module",
   "license": "Apache-2.0",
   "name": "@sovereignbase/dom-utils",
-  "version": "0.0.2",
-  "description": "",
+  "version": "0.0.3",
+  "description": "Typed DOM helpers for building vanilla JavaScript and TypeScript interfaces with native elements and inline cssText styling.",
   "keywords": [
     "typescript",
     "sovereignbase"
