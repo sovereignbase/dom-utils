@@ -63,5 +63,8 @@
   "bugs": {
     "url": "https://github.com/sovereignbase/dom-utils/issues"
   },
-  "homepage": "https://sovereignbase.dev/dom-utils"
+  "homepage": "https://sovereignbase.dev/dom-utils",
+  "dependencies": {
+    "@chenglou/pretext": "^1.0.0"
+  }
 }
