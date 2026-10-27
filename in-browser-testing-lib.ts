@@ -1,37 +1,41 @@
-import { html, body, div, h1 } from './src/index.js'
+import { body, button, div, h1, input, label, li, p, ul } from './src/index.js'
 
-html.style.cssText = `
-width: clamp(100vw,100vw, 100vw);
-height: clamp(100vw,100vw, 100vw);
-overflow: hidden;
-`
-body.style.cssText = `
-padding: 0;
-margin: 0;
-width: 100dvw;
-height: 100dvh;
-`
-
-const box = div()
-box.style.cssText = `
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
-width: 300px;
-height: 300px;
-background-color: red;
-display: grid;
-place-items: center;
+const panel = div()
+panel.style.cssText = `
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 24px;
+  font: 16px/1.5 system-ui, sans-serif;
 `
 
 const title = h1()
-title.textContent = 'Hello, DOM!'
-title.style.cssText = `
-margin: 0;
-color: white;
-font-family: system-ui, sans-serif;
-`
+title.textContent = 'Native DOM, less ceremony'
 
-box.appendChild(title)
-body.appendChild(box)
+const description = p()
+description.textContent =
+  'Typed element factories, inline cssText styles, and ordinary browser events.'
+
+const nameLabel = label()
+nameLabel.htmlFor = 'item-name'
+nameLabel.textContent = 'Item name '
+
+const name = input()
+name.id = 'item-name'
+name.placeholder = 'Write something'
+
+const add = button()
+add.textContent = 'Add item'
+add.style.cssText = 'margin-left: 8px; padding: 4px 12px;'
+
+const list = ul()
+add.onclick = () => {
+  if (!name.value.trim()) return
+  const item = li()
+  item.textContent = name.value
+  list.append(item)
+  name.value = ''
+  name.focus()
+}
+
+panel.append(title, description, nameLabel, name, add, list)
+body.append(panel)

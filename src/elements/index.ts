@@ -1,7 +1,10 @@
-/** Document root <html> element. */
+/** Document root <html> element, captured when the module is imported. */
 export const html: HTMLElement = document.documentElement
 
-/** Document <body> element. */
+/**
+ * Document <body> element, captured when the module is imported.
+ * Import after the body exists; replacing the body does not update this reference.
+ */
 export const body: HTMLElement = document.body
 
 /** Creates an HTML anchor element. */

@@ -15,6 +15,22 @@ Use our [cssText IntelliSense extension for VS Code](https://marketplace.visuals
 
 Real DOM elements, native browser APIs, and less ceremony for vanilla JavaScript and TypeScript builders.
 
+## readableUserAgent
+
+Returns a readable browser and device description, such as `Chrome · Windows · desktop`. Uses the user agent and available Client Hints, omitting missing values.
+
+## Compatibility
+
+- Runtimes: browsers with a DOM; import after the document body exists.
+- Module format: ESM and CommonJS.
+- Types: bundled `.d.ts`.
+
+## Tests
+
+Suite: Playwright — user-agent descriptions, Client Hints, element factories, document roots, styles, events, forms, tables, and lists.
+
+Matrix: Chromium / Firefox / WebKit + mobile Chrome and Safari emulation.
+
 ## License
 
 Apache-2.0

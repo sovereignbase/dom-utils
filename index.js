@@ -1,39 +1,45 @@
 // src/elements/index.ts
-var html = document.documentElement;
-var body = document.body;
-var div = () => document.createElement("div");
-var h1 = () => document.createElement("h1");
+var html = document.documentElement
+var body = document.body
+var button = () => document.createElement('button')
+var div = () => document.createElement('div')
+var h1 = () => document.createElement('h1')
+var input = () => document.createElement('input')
+var label = () => document.createElement('label')
+var li = () => document.createElement('li')
+var p = () => document.createElement('p')
+var ul = () => document.createElement('ul')
 
 // in-browser-testing-lib.ts
-html.style.cssText = `
-width: clamp(100vw,100vw, 100vw);
-height: clamp(100vw,100vw, 100vw);
-overflow: hidden;
-`;
-body.style.cssText = `
-padding: 0;
-margin: 0;
-width: 100dvw;
-height: 100dvh;
-`;
-var box = div();
-box.style.cssText = `
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
-width: 300px;
-height: 300px;
-background-color: red;
-display: grid;
-place-items: center;
-`;
-var title = h1();
-title.textContent = "Hello, DOM!";
-title.style.cssText = `
-margin: 0;
-color: white;
-font-family: system-ui, sans-serif;
-`;
-box.appendChild(title);
-body.appendChild(box);
+var panel = div()
+panel.style.cssText = `
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 24px;
+  font: 16px/1.5 system-ui, sans-serif;
+`
+var title = h1()
+title.textContent = 'Native DOM, less ceremony'
+var description = p()
+description.textContent =
+  'Typed element factories, inline cssText styles, and ordinary browser events.'
+var nameLabel = label()
+nameLabel.htmlFor = 'item-name'
+nameLabel.textContent = 'Item name '
+var name = input()
+name.id = 'item-name'
+name.placeholder = 'Write something'
+var add = button()
+add.textContent = 'Add item'
+add.style.cssText = 'margin-left: 8px; padding: 4px 12px;'
+var list = ul()
+add.onclick = () => {
+  if (!name.value.trim()) return
+  const item = li()
+  item.textContent = name.value
+  list.append(item)
+  name.value = ''
+  name.focus()
+}
+panel.append(title, description, nameLabel, name, add, list)
+body.append(panel)
