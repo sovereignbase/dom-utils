@@ -2,6 +2,7 @@
 [![TypeDoc](https://img.shields.io/badge/TypeDoc-API-3178c6?logo=typescript&logoColor=white)](https://sovereignbase.dev/dom-utils/)
 [![JSR](https://jsr.io/badges/@sovereignbase/dom-utils)](https://jsr.io/@sovereignbase/dom-utils)
 [![npm](https://img.shields.io/npm/v/@sovereignbase/dom-utils?logo=npm)](https://www.npmjs.com/package/@sovereignbase/dom-utils)
+[![codecov](https://codecov.io/gh/sovereignbase/dom-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/sovereignbase/dom-utils)
 
 # Import elements by tag name
 
@@ -30,6 +31,8 @@ Returns a readable browser and device description, such as `Chrome · Windows ·
 Suite: Playwright — user-agent descriptions, Client Hints, element factories, document roots, styles, events, forms, tables, and lists.
 
 Matrix: Chromium / Firefox / WebKit + mobile Chrome and Safari emulation.
+
+Coverage: Chromium Playwright runs, mapped to TypeScript sources and reported to Codecov.
 
 ## License
 

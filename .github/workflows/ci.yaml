@@ -56,6 +56,9 @@ jobs:
   test:
     needs: format
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v6
         with:
@@ -68,6 +71,23 @@ jobs:
       - run: npm run format:check
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          use_oidc: true
+          files: coverage/lcov.info
+          disable_search: true
+          fail_ci_if_error: true
+
+      - name: Upload coverage report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 14
+
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4

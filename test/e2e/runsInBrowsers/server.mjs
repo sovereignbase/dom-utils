@@ -1,7 +1,7 @@
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import { extname, resolve, sep } from 'node:path'
+import { dirname, extname, resolve, sep } from 'node:path'
 
 const root = fileURLToPath(new URL('../../../', import.meta.url))
 const dist = resolve(root, 'dist')
@@ -35,6 +35,13 @@ const server = createServer(async (request, response) => {
   try {
     const content = await readFile(path)
     response.setHeader('Content-Type', types[extname(path)])
+    if (extname(path) === '.map') {
+      const map = JSON.parse(content.toString())
+      // Resolve build-relative sources for the coverage reporter's local files.
+      map.sources = map.sources.map((source) => resolve(dirname(path), source))
+      response.end(JSON.stringify(map))
+      return
+    }
     response.end(content)
   } catch {
     response.writeHead(404).end('Not found')
